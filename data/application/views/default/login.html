@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>{% block title %}{{ site_name }}{% endblock %}</title>
+
+
+    <!--STYLESHEET-->
+    <!--=================================================-->
+
+    <!--Open Sans Font [ OPTIONAL ]-->
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
+
+
+    <!--Bootstrap Stylesheet [ REQUIRED ]-->
+    <link href="{{ base_url('assets/themes/css/bootstrap.min.css') }}" rel="stylesheet">
+
+
+    <!--Nifty Stylesheet [ REQUIRED ]-->
+    <link href="{{ base_url('assets/themes/css/nifty.min.css') }}" rel="stylesheet">
+
+
+    <!--Nifty Premium Icon [ DEMONSTRATION ]-->
+    <link href="{{ base_url('assets/themes/css/demo/nifty-demo-icons.min.css') }}" rel="stylesheet">
+
+
+    <!--=================================================-->
+
+
+
+    <!--Pace - Page Load Progress Par [OPTIONAL]-->
+    <link href="{{ base_url('assets/themes/plugins/pace/pace.min.css') }}" rel="stylesheet">
+    <script src="{{ base_url('assets/themes/plugins/pace/pace.min.js') }}"></script>
+
+
+        
+    <!--Demo [ DEMONSTRATION ]-->
+    <link href="{{ base_url('assets/themes/css/demo/nifty-demo.min.css') }}" rel="stylesheet">
+
+        
+</head>
+<body>
+    <div id="container" class="cls-container">
+        
+        <!-- BACKGROUND IMAGE -->
+        <!--===================================================-->
+        <div id="bg-overlay"></div>
+        
+        
+        <!-- LOGIN FORM -->
+        <!--===================================================-->
+        <div class="cls-content">
+            <div class="cls-content-sm panel">
+                <div class="panel-body">
+                    <div class="mar-ver pad-btm">
+                        <h1 class="h3">Login E-learning</h1>
+                        <p>Sign In to your account</p>
+                    </div>
+                    {{ form_open('login', {'autocomplete': 'off', 'class' : 'form-vertical'})|raw }}
+                    {{ get_flashdata('login')|raw }}
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="email" placeholder="Username (Email)" value="{{ set_value('email') }}" autofocus>
+                            {{ form_error('email')|raw }}
+                        </div>
+                        <div class="form-group">
+                            <input type="password" class="form-control" name="password" placeholder="Password">
+                        </div>
+                        <button class="btn btn-primary btn-lg btn-block" type="submit">Sign In</button>
+                    </form>
+                </div>
+        
+                <div class="pad-all">
+                    <a href="{{ site_url('login/lupa_password') }}" class="btn-link mar-rgt">Lupa password ?</a>
+                    {% if get_pengaturan('registrasi-siswa', 'value') == 1 or get_pengaturan('registrasi-pengajar', 'value') == 1 %}
+                    <a href="{{ site_url('login/register') }}" class="btn-link mar-lft">Buat akun</a>
+                    {% endif %}
+        
+                </div>
+            </div>
+        </div>
+        <!--===================================================-->
+        
+        
+        
+        
+        
+    </div>
+    <!--===================================================-->
+    <!-- END OF CONTAINER -->
+
+
+        
+    <!--JAVASCRIPT-->
+    <!--=================================================-->
+
+    <!--jQuery [ REQUIRED ]-->
+    <script src="{{ base_url('assets/themes/js/jquery.min.js') }}"></script>
+
+
+    <!--BootstrapJS [ RECOMMENDED ]-->
+    <script src="{{ base_url('assets/themes/js/bootstrap.min.js') }}"></script>
+
+
+    <!--NiftyJS [ RECOMMENDED ]-->
+    <script src="{{ base_url('assets/themes/js/nifty.min.js') }}"></script>
+
+
+
+
+    <!--=================================================-->
+    
+    <!--Background Image [ DEMONSTRATION ]-->
+    <script src="{{ base_url('assets/themes/js/demo/bg-images.js') }}"></script>
+
+</body>
+</html>
